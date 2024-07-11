@@ -1,5 +1,5 @@
 #include <iostream>
-#include "definitions.h"
+#include "../include/definitions.h"
 
 int currentMenu = MAIN_MENU;
 

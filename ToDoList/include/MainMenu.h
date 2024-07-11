@@ -10,7 +10,7 @@ public:
 	string title = "Main menu";
 	string options[3] = { "Deposit", "Withdraw", "Quit" };
 
-
+	int test = MAIN_MENU;
 private:
-	
-}
+
+};
