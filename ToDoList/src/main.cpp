@@ -34,8 +34,9 @@ void menuController() {
 
 		switch (_inputInt) {
 		case(MAIN_DEPOSIT):
-
+			break;
 		}
+		break;
 	}
 }
 

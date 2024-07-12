@@ -22,6 +22,8 @@ Menu::~Menu() {
 }
 
 void Menu::displayMenu() const {
+	cout << endl;
+	
 	// Print the top line
 	for (int i = 0; i < MENU_WIDTH; i++) {
 		cout << '-';
