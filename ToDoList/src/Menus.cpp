@@ -58,6 +58,6 @@ void Menu::displayMenu() const {
 }
 
 // MainMenu class constructors
-MainMenu::MainMenu() : Menu("Main Menu", new string[3]{ "Deposit", "Withdraw", "Quit" }, 3) {}
+MainMenu::MainMenu() : Menu("Main Menu", new string[3]{ "Add note", "View notes", "Quit" }, 3) {}
 
 MainMenu::MainMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}

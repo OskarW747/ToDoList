@@ -6,11 +6,13 @@
  */
 
 // Menu indexes
-#define MAIN_MENU_INDEX		0
+#define MAIN_MENU_INDEX		1
+#define ADD_NOTE_INDEX		2
+#define VIEW_NOTES_INDEX	3
 
 //MainMenu options
-#define MAIN_DEPOSIT		1
-#define MAIN_WITHDRAW		2
+#define MAIN_ADD_NOTE		1
+#define MAIN_VIEW_NOTES		2
 #define MAIN_EXIT			3
 
 // Customizations 
