@@ -1,7 +1,7 @@
 #include "../include/Menus.h"
 #include "../include/Definitions.h"
 
-// Base class constructors and methods
+//Base class constructors and methods
 Menu::Menu() {
 	this->title = "Menu";
 	this->optionCount = 0; 
@@ -61,3 +61,7 @@ void Menu::displayMenu() const {
 MainMenu::MainMenu() : Menu("Main Menu", new string[3]{ "Add note", "View notes", "Quit" }, 3) {}
 
 MainMenu::MainMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}
+
+AddNoteTitleMenu::AddNoteTitleMenu() : Menu("Add Note", new string[1]{"Please enter title of new note!"}, 1) {}
+
+AddNoteTitleMenu::AddNoteTitleMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}

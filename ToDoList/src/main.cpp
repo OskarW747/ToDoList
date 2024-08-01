@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <vector>
 #include "../include/Definitions.h"
 #include "../include/Menus.h"
 
@@ -10,16 +11,26 @@ int menuIndex = MAIN_MENU_INDEX;
 bool mainLoop = true;
 
 MainMenu mainMenu;
+AddNoteTitleMenu addNoteTitleMenu;
 
 void printMenu(Menu* _menu) {
 	_menu->displayMenu();
 }
 
+bool checkMatch(int target, const std::vector<int>& arr) {
+	for (int num : arr) {
+		if (num == target) {
+			return true;
+		}
+	}
+	return false;
+}
+
 // Function to get integer input and check if input is valid
-int getIntInput(int _validInputs[]) {
+int getIntInput(const std::vector<int> _validInputs) {
 
 	string _input;
-	int _inputInt;
+	int _inputInt = 0;
 
 	while (true)
 	{
@@ -29,18 +40,21 @@ int getIntInput(int _validInputs[]) {
 
 		try {
 			_inputInt = stoi(_input);
-			if (std::any_of(std::begin(_validInputs), std::end(_validInputs), [=](int n) {return n == _inputInt; })) {
-				std::cout << "found match/" << std::endl;
-			}
 		}
 		catch (invalid_argument e) {
 			cout << "Invalid input! Input must be of integer type!" << endl;
+			continue;
 		}
 
-		
-
+		if (checkMatch(_inputInt, _validInputs) == false) {
+			cout << "Invalid input! Input must correspond with given alternatives!" << endl;
+		}
+		else {
+			cout << "Input is valid!" << endl;
+			return _inputInt;
+		}
 	}
-	return _inputInt;
+	
 }
 
 // Function to get string input and check if input is valid
@@ -49,13 +63,12 @@ int getIntInput(int _validInputs[]) {
 //}
 
 void menuController() {
-	static int lastMenuIndex;
-
 	switch (menuIndex) {
-	case(MAIN_MENU_INDEX):
+	case(MAIN_MENU_INDEX): {
 		printMenu(&mainMenu);
 
-		int _input = getIntInput(1);
+		std::vector<int> validInputs = { MAIN_ADD_NOTE, MAIN_VIEW_NOTES, MAIN_EXIT };
+		int _input = getIntInput(validInputs);
 
 		switch (_input) {
 		case(MAIN_ADD_NOTE):
@@ -70,6 +83,10 @@ void menuController() {
 		}
 		break;
 	}
+	case (ADD_NOTE_INDEX):
+		printMenu(&addNoteTitleMenu);
+		break;
+	}
 }
 
 int main() {
@@ -77,17 +94,18 @@ int main() {
 
 	static int lastMenuIndex = 0;
 
-	printMenu(&mainMenu);
+	//printMenu(&mainMenu);
 
 	while (mainLoop == true) {
-
-		if (lastMenuIndex != menuIndex)
+		
+		if (menuIndex != lastMenuIndex)
 		{
+			lastMenuIndex = menuIndex;
 			cout << "Menu controller updating" << endl;
 			menuController();
 
 		}
-		lastMenuIndex = menuIndex;
+		
 	}
 	return 0;
 
