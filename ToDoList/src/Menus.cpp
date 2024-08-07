@@ -6,6 +6,7 @@ Menu::Menu() {
 	this->title = "Menu";
 	this->optionCount = 0; 
 	this->options = nullptr;
+	cout << "Menu default construktor" << endl;
 }
 
 Menu::Menu(string title, string options[], int optionCount) {
@@ -15,9 +16,11 @@ Menu::Menu(string title, string options[], int optionCount) {
 	for (int i = 0; i < optionCount; i++) {
 		this->options[i] = options[i];
 	}
+	cout << "Menu parameterized constructor" << endl;
 }
 
 Menu::~Menu() {
+	cout << "Menu destructor" << endl;
 	delete[] this->options;
 }
 
@@ -58,10 +61,10 @@ void Menu::displayMenu() const {
 }
 
 // MainMenu class constructors
-MainMenu::MainMenu() : Menu("Main Menu", new string[3]{ "Add note", "View notes", "Quit" }, 3) {}
+MainMenu::MainMenu() : Menu("Main Menu", new string[3]{ "Add note", "View notes", "Quit" }, 3) { cout << "MainMenu default constructor" << endl; }
 
-MainMenu::MainMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}
+MainMenu::MainMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) { cout << "MainMenu parameterized constructor" << endl; }
 
-AddNoteTitleMenu::AddNoteTitleMenu() : Menu("Add Note", new string[1]{"Please enter title of new note!"}, 1) {}
+AddNoteTitleMenu::AddNoteTitleMenu() : Menu("Add Note", new string[1]{"Please enter title of new note!"}, 1) { cout << "AddNoteTitleMenu default constructor" << endl; }
 
-AddNoteTitleMenu::AddNoteTitleMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}
+AddNoteTitleMenu::AddNoteTitleMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) { cout << "AddNoteTitleMenu parameterized constructor" << endl; }

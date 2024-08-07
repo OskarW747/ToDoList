@@ -2,8 +2,11 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 #include "../include/Definitions.h"
 #include "../include/Menus.h"
+#include "../include/Note.h"
 
 using namespace std;
 
@@ -12,6 +15,10 @@ bool mainLoop = true;
 
 MainMenu mainMenu;
 AddNoteTitleMenu addNoteTitleMenu;
+
+vector<Note> notesVector;
+
+
 
 void printMenu(Menu* _menu) {
 	_menu->displayMenu();
@@ -54,7 +61,15 @@ int getIntInput(const std::vector<int> _validInputs) {
 			return _inputInt;
 		}
 	}
-	
+
+}
+
+/*
+* A function for generating random numbers
+* Not working for the moment
+*/
+int randomInt(int start, int range) {
+	return (start + rand() % range);
 }
 
 // Function to get string input and check if input is valid
@@ -85,19 +100,28 @@ void menuController() {
 	}
 	case (ADD_NOTE_INDEX):
 		printMenu(&addNoteTitleMenu);
+
+		std::string _input;
+		getline(cin, _input);
+
+		Note testNote(false, randomInt(100000, 999999), _input, "Hello World");
+
 		break;
 	}
 }
 
 int main() {
 	cout << "Hello World" << std::endl;
+	
+	srand(time(0));
+
 
 	static int lastMenuIndex = 0;
 
 	//printMenu(&mainMenu);
 
 	while (mainLoop == true) {
-		
+
 		if (menuIndex != lastMenuIndex)
 		{
 			lastMenuIndex = menuIndex;
@@ -105,7 +129,7 @@ int main() {
 			menuController();
 
 		}
-		
+
 	}
 	return 0;
 

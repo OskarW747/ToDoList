@@ -14,9 +14,11 @@ public:
 
 	Note();
 	Note(bool exists, int id, std::string title, std::string description);
+	~Note();
 
-
-private:
+protected:
+	void _save();
+	void _load();
 };
 
 #endif
