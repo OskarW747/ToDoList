@@ -6,9 +6,10 @@
  */
 
 // Menu indexes
-#define MAIN_MENU_INDEX		1
-#define ADD_NOTE_INDEX		2
-#define VIEW_NOTES_INDEX	3
+#define MAIN_MENU_INDEX				1
+#define ADD_NOTE_TITLE_INDEX		2
+#define VIEW_NOTES_INDEX			3
+#define ADD_NOTE_DESCRIPTION_INDEX	4
 
 //MainMenu options
 #define MAIN_ADD_NOTE		1

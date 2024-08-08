@@ -15,8 +15,9 @@ bool mainLoop = true;
 
 MainMenu mainMenu;
 AddNoteTitleMenu addNoteTitleMenu;
+AddNoteDescriptionMenu addNoteDescriptionMenu;
 
-vector<Note> notesVector;
+vector<Note> Notes;
 
 
 
@@ -87,7 +88,7 @@ void menuController() {
 
 		switch (_input) {
 		case(MAIN_ADD_NOTE):
-			menuIndex = ADD_NOTE_INDEX;
+			menuIndex = ADD_NOTE_TITLE_INDEX;
 			break;
 		case(MAIN_VIEW_NOTES):
 			menuIndex = VIEW_NOTES_INDEX;
@@ -98,14 +99,27 @@ void menuController() {
 		}
 		break;
 	}
-	case (ADD_NOTE_INDEX):
+	case (ADD_NOTE_TITLE_INDEX):
 		printMenu(&addNoteTitleMenu);
 
 		std::string _input;
 		getline(cin, _input);
 
-		Note testNote(false, randomInt(100000, 999999), _input, "Hello World");
+		Note tempNote(false, randomInt(100000, 999999), _input, "");
+		
+		// Continue with adding notedescription after title have been added
+		printMenu(&addNoteDescriptionMenu);
 
+		std::string input;
+		getline(cin, input);
+
+		tempNote.description = input;
+
+		Notes.push_back(tempNote);
+
+		Notes[0].display();
+
+		menuIndex = MAIN_MENU_INDEX;
 		break;
 	}
 }
@@ -114,7 +128,6 @@ int main() {
 	cout << "Hello World" << std::endl;
 	
 	srand(time(0));
-
 
 	static int lastMenuIndex = 0;
 

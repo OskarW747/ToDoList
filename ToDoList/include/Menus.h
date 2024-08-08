@@ -37,4 +37,10 @@ public:
 private:
 };
 
+class AddNoteDescriptionMenu : public Menu {
+public:
+	AddNoteDescriptionMenu();
+	AddNoteDescriptionMenu(string title, string options[], int optionCount);
+};
+
 #endif

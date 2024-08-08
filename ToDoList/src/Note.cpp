@@ -55,3 +55,7 @@ void Note::_load() {
 Note::~Note() {
 	this->_save();
 }
+
+void Note::display() {
+	std::cout << "Note:\t" << this->id << "\t" << this->title << "\t" << this->description << std::endl;
+}

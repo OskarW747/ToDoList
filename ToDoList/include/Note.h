@@ -16,6 +16,10 @@ public:
 	Note(bool exists, int id, std::string title, std::string description);
 	~Note();
 
+	int getId() const { return id; }
+
+	void display();
+
 protected:
 	void _save();
 	void _load();

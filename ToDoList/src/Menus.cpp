@@ -68,3 +68,7 @@ MainMenu::MainMenu(string title, string options[], int optionCount) : Menu(title
 AddNoteTitleMenu::AddNoteTitleMenu() : Menu("Add Note", new string[1]{"Please enter title of new note!"}, 1) { cout << "AddNoteTitleMenu default constructor" << endl; }
 
 AddNoteTitleMenu::AddNoteTitleMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) { cout << "AddNoteTitleMenu parameterized constructor" << endl; }
+
+AddNoteDescriptionMenu::AddNoteDescriptionMenu() : Menu("Add Note", new string[1]{ "Please enter description of new note!" }, 1) {}
+
+AddNoteDescriptionMenu::AddNoteDescriptionMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}
