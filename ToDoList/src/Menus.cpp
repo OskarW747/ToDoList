@@ -72,3 +72,7 @@ AddNoteTitleMenu::AddNoteTitleMenu(string title, string options[], int optionCou
 AddNoteDescriptionMenu::AddNoteDescriptionMenu() : Menu("Add Note", new string[1]{ "Please enter description of new note!" }, 1) {}
 
 AddNoteDescriptionMenu::AddNoteDescriptionMenu(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}
+
+NoteList::NoteList() : Menu("Note list", new string[1]{ "Please enter note to view!" }, 1) {}
+
+NoteList::NoteList(string title, string options[], int optionCount) : Menu(title, options, optionCount) {}

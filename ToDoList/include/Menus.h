@@ -43,4 +43,10 @@ public:
 	AddNoteDescriptionMenu(string title, string options[], int optionCount);
 };
 
+class NoteList : public Menu{
+public:
+	NoteList();
+	NoteList(string title, string options[], int optionCount);
+}
+
 #endif
